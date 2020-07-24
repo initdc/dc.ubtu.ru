@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 sudo apt-get remove docker docker-engine docker.io containerd runc
 
@@ -30,18 +30,8 @@ sudo add-apt-repository \
 
 sudo apt-get update
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 docker -v
 
 read -p 'check docker version, will install docker-compose' a
-
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
-sudo chmod +x /usr/local/bin/docker-compose
-
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-
-docker-compose --version
-
-read -p 'check docker-compose version' a
